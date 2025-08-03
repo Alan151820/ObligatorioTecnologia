@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Shell
+    x:Class="ObligatorioTecnologia.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ObligatorioTecnologia"
+    Title="ObligatorioTecnologia">
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout HorizontalOptions="Center">
+            <Frame
+            WidthRequest="80"
+            HeightRequest="80"
+            CornerRadius="40"
+            BackgroundColor="Aqua">
+
+                <Image x:Name="UsuarioImagen"
+            Source="avatar_default.png"/>
+            </Frame>
+            
+            <Label x:Name="UsuarioNombre" 
+                       Text="" 
+                       FontAttributes="Bold" 
+                       FontSize="16" 
+                       HorizontalOptions="Center"/>
+            <Button Text="Iniciar Sesión"
+                        x:Name="btnLogin"
+                        Clicked="btnLogin_Clicked"
+                        BackgroundColor="BlueViolet"
+                        HorizontalOptions="Center"
+                        Margin="0,5,0,10"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+    <!-- Ítems del menú lateral -->
+    <FlyoutItem Title="Inicio" Icon="inicio.png">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Cine" Icon="login.png">
+        <ShellContent ContentTemplate="{DataTemplate local:CinePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Cotizaciones" Icon="login.png">
+        <ShellContent ContentTemplate="{DataTemplate local:CotizacionesPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Clima" Icon="login.png">
+        <ShellContent ContentTemplate="{DataTemplate local:ClimaPage}" />
+    </FlyoutItem>
+
+</Shell>
