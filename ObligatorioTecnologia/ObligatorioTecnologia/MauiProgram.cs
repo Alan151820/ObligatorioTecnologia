@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
+
+
 
 namespace ObligatorioTecnologia
 {
@@ -9,6 +12,7 @@ namespace ObligatorioTecnologia
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -19,7 +23,8 @@ namespace ObligatorioTecnologia
     		builder.Logging.AddDebug();
 #endif
 
+
             return builder.Build();
         }
-    }
+           }
 }

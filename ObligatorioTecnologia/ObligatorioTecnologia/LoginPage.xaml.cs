@@ -1,3 +1,4 @@
+
 namespace ObligatorioTecnologia;
 
 public partial class LoginPage : ContentPage
@@ -5,5 +6,7 @@ public partial class LoginPage : ContentPage
 	public LoginPage()
 	{
 		InitializeComponent();
+		
 	}
+
 }

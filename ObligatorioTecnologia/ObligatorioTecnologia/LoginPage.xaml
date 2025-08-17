@@ -1,12 +1,111 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObligatorioTecnologia.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="ObligatorioTecnologia.LoginPage">
+
+    <ScrollView >
+        <Grid BackgroundColor="CadetBlue">
+
+            <VerticalStackLayout Spacing="20"
+                                 Padding="20"
+                                 WidthRequest="350"
+                                 VerticalOptions="Start"
+                                 Margin="0,100,0,0"
+                                 >
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       Padding="20"
+                       BorderColor="#0e7a6d"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="20" Padding="0,30,0,0">
+
+                        <!-- Usuario -->
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7915728/user-icon-md.png"
+                                   WidthRequest="40"
+                                   HeightRequest="40"/>
+                            <Entry Placeholder="Ingrese Usuario"
+                                   Keyboard="Email"
+                                   x:Name="EmailEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Contraseña -->
+                        <HorizontalStackLayout Spacing="10">
+                            <Image Source="https://raw.githubusercontent.com/Bisns/password-generator/master/logo.png"
+                                   WidthRequest="40"
+                                   HeightRequest="40"/>
+                            <Entry Placeholder="Ingrese Contraseña"
+                                   IsPassword="True"
+                                   x:Name="PasswordEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+                        </HorizontalStackLayout>
+
+                        <Button Text="Entrar"
+                                BackgroundColor="Black"
+                                TextColor="White"
+                                CornerRadius="10"/>
+
+                        <Label x:Name="ContraseñaOlvidada"
+                               Text="¿Olvidaste tu contraseña?"
+                               TextColor="Black"
+                               HorizontalOptions="Center"
+                               TextDecorations="Underline"/>
+
+                        <Label x:Name="ErrorLabel"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               IsVisible="False"/>
+
+                        <BoxView WidthRequest="200" HeightRequest="0.5" BackgroundColor="Gray" />
+
+                        <Button Text="Iniciar sesión con Google"
+                            ImageSource="https://pngimg.com/d/google_PNG19635.png"
+                            BackgroundColor="White"
+                            TextColor="Black"
+                            BorderColor="LightGray"
+                            BorderWidth="1"
+                            CornerRadius="8"
+                            Padding="10"
+                            HeightRequest="50"/>
+
+
+                        <Button ImageSource="https://png.pngtree.com/png-clipart/20220313/original/pngtree-fingerprint-blue-simple-style-png-image_7435437.png" 
+                                Text="Iniciar con huella"
+                                BackgroundColor="White"
+                                TextColor="Black"
+                                BorderColor="LightGray"
+                                BorderWidth="1"
+                                CornerRadius="8"
+                                Padding="0,0,50,0"
+                                HeightRequest="50"/>
+
+
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <Frame CornerRadius="50"
+                   WidthRequest="80"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Padding="0"
+                   BackgroundColor="White"
+                   TranslationY="-40"
+                   ZIndex="1"
+                   Margin="0,100,0,0">
+
+                <Image Source="https://jeffreymichaels.com/wp-content/uploads/2017/09/JM-REP-BLU.png"/>
+
+            </Frame>
+
+
+        </Grid>
+    </ScrollView>
+
 </ContentPage>

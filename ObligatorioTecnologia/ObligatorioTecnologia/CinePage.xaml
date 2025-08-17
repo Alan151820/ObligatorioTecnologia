@@ -2,11 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ObligatorioTecnologia.CinePage"
-             Title="CinePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="#121212">
+
+    <ScrollView Orientation="Vertical">
+        <VerticalStackLayout Padding="10" Spacing="15">
+
+            <Label Text="Próximos Estrenos"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Margin="5,0"/>
+
+            <CollectionView x:Name="PeliculasCollection"
+                            HeightRequest="300"         
+                            HorizontalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="12"
+                               BorderColor="BlueViolet"
+                               WidthRequest="215"
+                               BackgroundColor="#1E1E1E">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnPeliculaTapped"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <!-- Imagen -->
+                                <Image Source="{Binding PosterUrl}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="250"
+                                       WidthRequest="170"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
