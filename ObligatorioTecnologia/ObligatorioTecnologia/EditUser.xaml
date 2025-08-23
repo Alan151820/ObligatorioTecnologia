@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologia.EditUser"
+             Title="EditUser">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25" HorizontalOptions="Center" >
+
+            <Frame WidthRequest="100" HeightRequest="100" CornerRadius="50" Padding="0" HasShadow="True">
+                <Image x:Name="UsuarioImagen" WidthRequest="100" HeightRequest="100" />
+            </Frame>
+
+            <HorizontalStackLayout>
+
+                <Button Text="Seleccionar foto"
+                 Clicked="CargarDesdeArchivoImg_Clicked"
+                 BackgroundColor="#6A5ACD"
+                 TextColor="White"
+                 CornerRadius="20"
+                 WidthRequest="150"
+                 HorizontalOptions="Center"/>
+                <Label Text="|" Margin="10,10,10,0"/>
+                <ImageButton Source="https://icones.pro/wp-content/uploads/2021/02/icono-de-camara-bleue.png"
+         Clicked="TomarFoto_Clicked"
+         CornerRadius="20"
+         WidthRequest="50"
+         HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Nombre" FontAttributes="Bold"/>
+            <Entry x:Name="NombreEntry" Placeholder="Ingresa tu nombre"
+                BackgroundColor="#F0F0F0" HeightRequest="40" />
+
+            <Label Text="Email" FontAttributes="Bold"/>
+            <Entry x:Name="EmailEntry" TextColor="Gray" IsReadOnly="True"
+                BackgroundColor="#F0F0F0" HeightRequest="40" />
+
+            <Button Text="Guardar cambios"
+                 Clicked="BtnGuardar_Clicked"
+                 BackgroundColor="#FFCC00"
+                 TextColor="White"
+                 CornerRadius="20"
+                 WidthRequest="200"
+                 HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

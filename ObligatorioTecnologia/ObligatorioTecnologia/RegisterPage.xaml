@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologia.RegisterPage"
+             Title="RegisterPage">
+    <ScrollView>
+        <Grid BackgroundColor="CadetBlue">
+
+            <VerticalStackLayout Spacing="20"
+                                 Padding="20"
+                                 WidthRequest="350"
+                                 VerticalOptions="Start"
+                                 Margin="0,100,0,0">
+
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       Padding="20"
+                       BorderColor="#0e7a6d"
+                       HasShadow="True">
+
+                    <VerticalStackLayout Spacing="20" Padding="0,30,0,0">
+
+
+                        <Entry Placeholder="Ingrese su nombre"
+                                   x:Name="NombreEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+
+
+                        <Entry Placeholder="Ingrese su email"
+                                   Keyboard="Email"
+                                   x:Name="EmailEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+
+                        <Entry Placeholder="Ingrese contraseña"
+                                   IsPassword="True"
+                                   x:Name="PasswordEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+
+                        <!-- Confirmar contraseña -->
+
+                        <Entry Placeholder="Confirme contraseña"
+                                   IsPassword="True"
+                                   x:Name="ConfirmPasswordEntry"
+                                   PlaceholderColor="Gray"
+                                   WidthRequest="200"/>
+
+                        <Button Text="Registrarse"
+                                BackgroundColor="Black"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Clicked="RegisterUser_Clicked"
+                               />
+
+                        <Label x:Name="ErrorLabel"
+                               TextColor="Red"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               IsVisible="False"/>
+
+                        <BoxView WidthRequest="200" HeightRequest="0.5" BackgroundColor="Gray" />
+
+                        <Button 
+                            Text="¿Ya tienes cuenta? Inicia sesión"
+                            BackgroundColor="Transparent"
+                            BorderWidth="0"
+                            Padding="0"
+                            FontSize="16"
+                            TextColor="Black"
+                            HorizontalOptions="Center"
+                            Visual="None"
+                            Clicked="BackLogin_Clicked"
+                          />
+                        <BoxView WidthRequest="200" HeightRequest="0.5" BackgroundColor="Gray" />
+
+                        <Button Text="Registrate con Google"
+            ImageSource="https://pngimg.com/d/google_PNG19635.png"
+            BackgroundColor="White"
+            TextColor="Black"
+            BorderColor="LightGray"
+            BorderWidth="1"
+            CornerRadius="8"
+            Padding="10"
+            HeightRequest="50"/>
+
+
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <Frame CornerRadius="50"
+                   WidthRequest="80"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Padding="0"
+                   BackgroundColor="White"
+                   TranslationY="-40"
+                   ZIndex="1"
+                   Margin="0,100,0,0">
+
+                <Image Source="https://static.vecteezy.com/system/resources/previews/040/041/346/non_2x/document-approval-icon-vector.jpg"/>
+
+            </Frame>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

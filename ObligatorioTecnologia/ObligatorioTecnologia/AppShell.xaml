@@ -5,47 +5,62 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ObligatorioTecnologia"
-    Title="ObligatorioTecnologia">
-    <Shell.FlyoutHeader>
-        <VerticalStackLayout HorizontalOptions="Center">
-            <Frame
-            WidthRequest="80"
-            HeightRequest="80"
-            CornerRadius="40"
-            BackgroundColor="Aqua">
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
 
-                <Image x:Name="UsuarioImagen"
-            Source="avatar_default.png"/>
+    Title="ObligatorioTecnologia">
+
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout HorizontalOptions="Center" Padding="10">
+            <Frame WidthRequest="80" HeightRequest="80" CornerRadius="40" Padding="0" HasShadow="True" HorizontalOptions="Center">
+                <Image x:Name="UsuarioImagen" WidthRequest="80" HeightRequest="80"/>
             </Frame>
-            
-            <Label x:Name="UsuarioNombre" 
-                       Text="" 
-                       FontAttributes="Bold" 
-                       FontSize="16" 
-                       HorizontalOptions="Center"/>
+
+            <Label x:Name="UsuarioNombre" Text="" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <ImageButton Source="https://i.pinimg.com/564x/2b/9e/ec/2b9eec40a1da3ec7dc24908cd92f36fe.jpg"
+                             x:Name="btneditar"
+                             Clicked="btnEditar_Clicked"
+                             BackgroundColor="Transparent"
+                             WidthRequest="25"
+                             HeightRequest="25"
+                             IsVisible="False"/>
+                <ImageButton Source="https://png.pngtree.com/png-clipart/20230918/original/pngtree-flatstyle-entry-door-with-isolated-white-background-illustrating-exit-doors-and-png-image_12345021.png"
+                             x:Name="btnCerrarSesion"
+                             Clicked="btnCerrrarSesion_Clicked"
+                             BackgroundColor="Transparent"
+                             WidthRequest="25"
+                             HeightRequest="25"
+                             IsVisible="False"/>
+            </HorizontalStackLayout>
+
             <Button Text="Iniciar Sesión"
-                        x:Name="btnLogin"
-                        Clicked="btnLogin_Clicked"
-                        BackgroundColor="BlueViolet"
-                        HorizontalOptions="Center"
-                        Margin="0,5,0,10"/>
+                    x:Name="btnLogin"
+                    Clicked="btnLogin_Clicked"
+                    BackgroundColor="BlueViolet"
+                    HorizontalOptions="Center"
+                    Margin="0,5,0,10"/>
         </VerticalStackLayout>
     </Shell.FlyoutHeader>
-    <!-- Ítems del menú lateral -->
-    <FlyoutItem Title="Inicio" Icon="inicio.png">
+
+    <FlyoutItem x:Name="MenuNoticias" Title="Noticias">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Cine" Icon="login.png">
-        <ShellContent ContentTemplate="{DataTemplate local:CinePage}" />
+    <FlyoutItem x:Name="MenuClima" Title="Clima">
+        <ShellContent ContentTemplate="{DataTemplate local:ClimaPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Cotizaciones" Icon="login.png">
+    <FlyoutItem x:Name="MenuCotizaciones" Title="Cotizaciones">
         <ShellContent ContentTemplate="{DataTemplate local:CotizacionesPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Clima" Icon="login.png">
-        <ShellContent ContentTemplate="{DataTemplate local:ClimaPage}" />
+    <FlyoutItem x:Name="MenuCine" Title="Cine">
+        <ShellContent ContentTemplate="{DataTemplate local:CinePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem x:Name="MenuConfiguracion" Title="Configuración" IsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:Configuracion}" />
     </FlyoutItem>
 
 </Shell>

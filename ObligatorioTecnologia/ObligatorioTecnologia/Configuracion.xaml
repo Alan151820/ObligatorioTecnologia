@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologia.Configuracion"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Título principal -->
+            <Label Text="Personaliza tu menú"
+                   FontAttributes="Bold"
+                   FontSize="24"
+                   TextColor="#222"
+                   HorizontalOptions="Center"
+                   Margin="0,10"/>
+
+            <Label Text="Selecciona las secciones que deseas mostrar:"
+                   FontSize="16"
+                   TextColor="#555"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+
+            <!-- Tarjeta Clima -->
+            <Frame x:Name="MenuClimaCard"
+                   CornerRadius="12"
+                   Padding="12"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   HorizontalOptions="Center"
+                   WidthRequest="300">
+                <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                    <Label Text="Clima"
+                           FontSize="16"
+                           TextColor="#333"
+                           VerticalOptions="Center"
+                                                      WidthRequest="160"/>
+
+                    <Switch x:Name="SwitchClima"
+                            IsToggled="{Binding ClimaVisible}"
+                            HorizontalOptions="EndAndExpand"
+                            IsEnabled="False"/>
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapClima_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Tarjeta Cotizaciones -->
+            <Frame x:Name="MenuCotizacionesCard"
+                   CornerRadius="12"
+                   Padding="12"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   HorizontalOptions="Center"
+                   WidthRequest="300"
+                   >
+                <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                    <Label Text="Cotizaciones"
+                           FontSize="16"
+                           TextColor="#333"
+                           VerticalOptions="Center"
+                           WidthRequest="160"/>
+                    <Switch x:Name="SwitchCotizaciones"
+                            IsToggled="{Binding CotizacionesVisible}"
+                            HorizontalOptions="EndAndExpand"
+                            IsEnabled="False"/>
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapCotizaciones_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Tarjeta Cine -->
+            <Frame x:Name="MenuCineCard"
+                   CornerRadius="12"
+                   Padding="12"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   HorizontalOptions="Center"
+                   WidthRequest="300">
+                <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                    <Label Text="Cine"
+                           FontSize="16"
+                           TextColor="#333"
+                           VerticalOptions="Center"
+                                                      WidthRequest="160"/>
+
+                    <Switch x:Name="SwitchCine"
+                            IsToggled="{Binding CineVisible}"
+                            HorizontalOptions="EndAndExpand"
+                            IsEnabled="False"/>
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapCine_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Pie de página -->
+            <Label Text="* Los cambios se aplican inmediatamente en el menú principal"
+                   FontSize="12"
+                   TextColor="#888"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

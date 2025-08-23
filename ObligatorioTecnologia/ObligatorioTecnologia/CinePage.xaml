@@ -1,17 +1,99 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ObligatorioTecnologia.CinePage"
              BackgroundColor="#121212">
 
     <ScrollView Orientation="Vertical">
         <VerticalStackLayout Padding="10" Spacing="15">
+            <Grid HeightRequest="100">
+                <Image Source="https://www.pngkey.com/png/full/901-9010981_cinta-de-cine-png-para-poner-fotos-overlays.png"
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="FillAndExpand" />
 
-            <Label Text="Próximos Estrenos"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   Margin="5,0"/>
+                <Label Text="PROXIMOS ESTRENOS"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       FontSize="24"
+       TextColor="BlueViolet"
+       FontFamily="Impact"
+       CharacterSpacing="2">
+
+                </Label>
+            </Grid>
+
+            <FlexLayout Direction="Row"
+            Wrap="Wrap"
+             
+            JustifyContent="Center"
+            AlignItems="Start"
+            Padding="12"
+            BackgroundColor="#121212"
+            Margin="0,20,0,0"
+            BindableLayout.ItemsSource="{x:Null}">
+
+
+                <VerticalStackLayout WidthRequest="100"
+                         Margin="6">
+                    <Label Text="Género"
+               FontSize="13"
+               Margin="0,0,0,2"
+                                           TextColor="BlueViolet"
+/>
+                    <Picker x:Name="GenrePicker"
+                ItemDisplayBinding="{Binding Name}"
+                FontSize="13"
+                TextColor="BlueViolet"
+                BackgroundColor="#121229"
+                HeightRequest="40"
+                HorizontalOptions="Fill" />
+
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout WidthRequest="100"
+                         Margin="6">
+                    <Label Text="Desde"
+                    FontSize="13"
+                     TextColor="{AppThemeBinding Light=BlueViolet, Dark=Lavender}"
+                     Margin="0,0,0,2" />
+                    <DatePicker x:Name="FechaPicker"
+                    Format="dd/MM/yyyy"
+                    MinimumDate="2000-01-01"
+                    MaximumDate="{x:Static sys:DateTime.Now}"
+                    TextColor="BlueViolet"
+                    BackgroundColor="#121229"
+                    HeightRequest="40"
+                    HorizontalOptions="Fill"/>
+                </VerticalStackLayout>
+
+                <Button Text="FILTRAR"
+                Clicked="Filtrar_OnClicked"
+                BackgroundColor="BlueViolet"
+                TextColor="White"
+                FontSize="10"
+                FontAttributes="Bold"
+                CornerRadius="6"
+                HeightRequest="40"
+                WidthRequest="80"
+                Margin="0,15,10,0"
+             />
+                <ImageButton  Source="https://cdn-icons-png.flaticon.com/512/3807/3807871.png"
+                 Clicked="BorrarFiltro_OnClicked"
+                 BackgroundColor="Transparent"
+                 HeightRequest="40"
+                 WidthRequest="40"
+                 Padding="6"
+                 Margin="0,15,0,0"
+                 HorizontalOptions="Center"
+                 AutomationId="btnBorrar"
+                 SemanticProperties.Description="Borrar filtros" />
+
+            </FlexLayout>
+
+
+
 
             <CollectionView x:Name="PeliculasCollection"
                             HeightRequest="300"         
@@ -30,7 +112,7 @@
                                 <TapGestureRecognizer Tapped="OnPeliculaTapped"/>
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout>
-                                <!-- Imagen -->
+
                                 <Image Source="{Binding PosterUrl}"
                                        Aspect="AspectFill"
                                        HeightRequest="250"

@@ -47,7 +47,8 @@
                         <Button Text="Entrar"
                                 BackgroundColor="Black"
                                 TextColor="White"
-                                CornerRadius="10"/>
+                                CornerRadius="10"
+                                Clicked="LoginUse_Clicked"/>
 
                         <Label x:Name="ContraseñaOlvidada"
                                Text="¿Olvidaste tu contraseña?"
@@ -60,6 +61,19 @@
                                FontAttributes="Bold"
                                HorizontalOptions="Center"
                                IsVisible="False"/>
+
+                        <BoxView WidthRequest="200" HeightRequest="0.5" BackgroundColor="Gray" />
+
+                        <Button 
+                            Text="¿No tienes cuenta? Registrate"
+                           BackgroundColor="Transparent"
+                             BorderWidth="0"
+                             Padding="0"
+                             FontSize="16"
+                             TextColor="Black"
+                             HorizontalOptions="Center"
+                             Visual="None"
+                            Clicked="Register_Clicked"/>
 
                         <BoxView WidthRequest="200" HeightRequest="0.5" BackgroundColor="Gray" />
 
@@ -82,7 +96,8 @@
                                 BorderWidth="1"
                                 CornerRadius="8"
                                 Padding="0,0,50,0"
-                                HeightRequest="50"/>
+                                HeightRequest="50"
+                                Clicked="SesionConHuella_Clicked"/>
 
 
                     </VerticalStackLayout>

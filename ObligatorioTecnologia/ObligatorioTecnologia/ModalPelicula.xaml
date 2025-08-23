@@ -4,28 +4,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Class="ObligatorioTecnologia.ModalPelicula"
-    Size="300,450"
->
-
-    <Frame Padding="10" BackgroundColor="#1E1E1E" CornerRadius="20" HorizontalOptions="Center" VerticalOptions="Center">
-        <ScrollView>
-            <VerticalStackLayout Spacing="10">
+        CanBeDismissedByTappingOutsideOfPopup="True">
 
 
-                <Image x:Name="PosterImage" HeightRequest="160" WidthRequest="110" Aspect="AspectFill"/>
+    <Grid Padding="20" BackgroundColor="Transparent">
+        <Frame
+    BackgroundColor="White"
+    CornerRadius="12"
+    WidthRequest="300"
+    VerticalOptions="Center"
+    HorizontalOptions="Center"
+   MaximumHeightRequest="500">
 
-                <Label x:Name="TituloLabel" TextColor="White" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" MaxLines="2"/>
+            <ScrollView>
 
-                <Label x:Name="FechaLabel" TextColor="LightGray" HorizontalOptions="Center" FontSize="14"/>
+                <VerticalStackLayout Spacing="15">
 
-                <ScrollView HeightRequest="120">
-                    <Label x:Name="DescripcionLabel" TextColor="White" FontSize="14"/>
-                </ScrollView>
+                    <Image x:Name="PosterImage" HeightRequest="160" WidthRequest="110" Aspect="AspectFill"/>
 
-                <Button Text="TRAILER" Clicked="Trailer_Clicked" BackgroundColor="CadetBlue" TextColor="White"/>
+                    <Label x:Name="TituloLabel" TextColor="Black" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" MaxLines="2"/>
 
-            </VerticalStackLayout>
-        </ScrollView>
-    </Frame>
+                    <Label x:Name="FechaLabel" TextColor="Black" HorizontalOptions="Center" FontSize="14"/>
 
+                    <Label x:Name="DescripcionLabel"
+           TextColor="Black"
+           FontSize="14"
+           LineBreakMode="WordWrap"
+           HorizontalOptions="Fill"
+           VerticalOptions="Fill"
+           Padding="5" />
+                    <Button Text="TRAILER" Clicked="Trailer_Clicked" BackgroundColor="CadetBlue" TextColor="White"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
 </toolkit:Popup>
