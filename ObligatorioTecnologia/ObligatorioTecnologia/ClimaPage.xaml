@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObligatorioTecnologia.ClimaPage"
-             Title="ClimaPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Image x:Name="IMGAPI"></Image>
-    </VerticalStackLayout>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObligatorioTecnologia.ClimaPage"
+    BackgroundColor="#A2CADF"
+    Title="Pronóstico">
+
+    <!-- celeste pastel -->
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label x:Name="lblCiudad"
+                   Text="Ciudad"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#003366"
+                   HorizontalOptions="Center" />
+
+            <!-- Pronóstico por horas (centrado) -->
+            <CollectionView x:Name="PronosticoHoras"
+                            HorizontalOptions="Center"
+                            ItemsLayout="HorizontalList"
+                            HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="6"
+                               WidthRequest="130"
+                               BackgroundColor="White"
+                               CornerRadius="14"
+                               HasShadow="True">
+                            <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                                <Label Text="{Binding Hora}"
+                                       FontAttributes="Bold"
+                                       TextColor="#003366"
+                                       HorizontalOptions="Center"/>
+                                <Image Source="{Binding IconoUrl}"
+                                       WidthRequest="58" HeightRequest="58" Aspect="AspectFit"/>
+                                <Label Text="{Binding Descripcion}"
+                                       FontSize="11"
+                                       TextColor="#333333"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding TempMax, StringFormat='Máx: {0:0.#}°C'}"
+                                       FontSize="13" TextColor="#cc0000" HorizontalOptions="Center"/>
+                                <Label Text="{Binding TempMin, StringFormat='Mín: {0:0.#}°C'}"
+                                       FontSize="13" TextColor="#0066cc" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Próximos 5 días"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#003366"/>
+
+            <!-- Resumen próximos 5 días (tarjetas pequeñas, centradas) -->
+            <CollectionView x:Name="PronosticoDias"
+                            HorizontalOptions="Center"
+                            ItemsLayout="HorizontalList"
+                            HeightRequest="160">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="8" Margin="6"
+                               WidthRequest="110"
+                               BackgroundColor="White"
+                               CornerRadius="12"
+                               HasShadow="True">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="{Binding Dia}"
+                                       FontAttributes="Bold"
+                                       FontSize="14"
+                                       TextColor="#003366"
+                                       HorizontalOptions="Center"/>
+                                <Image Source="{Binding IconoUrl}"
+                                       WidthRequest="44" HeightRequest="44" Aspect="AspectFit"/>
+                                <Label Text="{Binding TempMax, StringFormat='Máx {0:0.#}°C'}"
+                                       FontSize="12" TextColor="#cc0000" HorizontalOptions="Center"/>
+                                <Label Text="{Binding TempMin, StringFormat='Mín {0:0.#}°C'}"
+                                       FontSize="12" TextColor="#0066cc" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

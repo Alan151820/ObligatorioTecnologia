@@ -1,4 +1,7 @@
-﻿namespace ObligatorioTecnologia
+﻿using ObligatorioTecnologia.Modelo;
+using ObligatorioTecnologia.Data;
+
+namespace ObligatorioTecnologia
 {
     public partial class AppShell : Shell
     {
@@ -8,6 +11,10 @@
             CargarUsuarioActivo();
             ConfigurarMenu();
 
+            Routing.RegisterRoute(nameof(SponsorFormPage), typeof(SponsorFormPage));
+            Routing.RegisterRoute(nameof(PlansPage), typeof(PlansPage));                 // o PlanesPage si tu clase se llama así
+            Routing.RegisterRoute(nameof(SponsorsMapPage), typeof(SponsorsMapPage));     // ojo con la 's'
+            Routing.RegisterRoute(nameof(SponsorDetailPage), typeof(SponsorDetailPage));
 
         }
         public Image UsuarioImagenPublic => UsuarioImagen;
@@ -71,7 +78,7 @@
             MenuCotizaciones.IsVisible = Preferences.Get("MenuCotizacionesVisible", true);
             MenuCine.IsVisible = Preferences.Get("MenuCineVisible", true);
 
-            MenuConfiguracion.IsVisible = true;
+            //MenuConfiguracion.IsVisible = true;
         }
 
     }

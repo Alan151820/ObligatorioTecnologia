@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="ObligatorioTecnologia.SponsorsMapPage"
+             Title="Mapa de Patrocinadores">
+    <Grid RowDefinitions="Auto,*" Padding="12">
+        <HorizontalStackLayout Spacing="8">
+            <Entry x:Name="DireccionEntry" Placeholder="Dirección del local"/>
+            <Button Text="Guardar y Marcar" Clicked="OnGuardarYMarcar"/>
+        </HorizontalStackLayout>
+
+        <maps:Map x:Name="Mapa"
+                  Grid.Row="1"
+                  IsShowingUser="true"
+                  MapType="Street" />
+    </Grid>
+</ContentPage>

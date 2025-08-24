@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObligatorioTecnologia.SponsorsPage"
+             Title="Patrocinadores">
+    <VerticalStackLayout Padding="16" Spacing="12">
+        <HorizontalStackLayout Spacing="8">
+            <Button Text="Nuevo" Clicked="OnNuevo"/>
+            <Button Text="Planes" Clicked="OnPlanes"/>
+            <Button Text="Mapa" Clicked="OnMapa"/>
+        </HorizontalStackLayout>
+
+        <CollectionView x:Name="SponsorsList" SelectionMode="Single" SelectionChanged="OnSelChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="8" ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Nombre}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Descripcion}" FontSize="12" TextColor="Gray"/>
+                            <Label Text="{Binding Direccion}" FontSize="12"/>
+                        </VerticalStackLayout>
+                        <Label Grid.Column="1"
+                               Text="{Binding PlanPagado, StringFormat='Pagado: {0}'}"
+                               TextColor="{Binding PlanPagado, Converter={StaticResource BoolToColorConverter}}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
+
