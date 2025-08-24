@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ObligatorioTecnologia.Configuracion"
-             BackgroundColor="#A2CADF">
+             BackgroundColor="White">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
@@ -94,6 +94,31 @@
                 </HorizontalStackLayout>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapCine_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- Tarjeta Patrocinadores -->
+            <Frame x:Name="MenuPatrocinadoresCard"
+        CornerRadius="12"
+        Padding="12"
+        BackgroundColor="White"
+        HasShadow="True"
+        HorizontalOptions="Center"
+        WidthRequest="300">
+                <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                    <Label Text="Patrocinadores"
+                FontSize="16"
+                TextColor="#333"
+                VerticalOptions="Center"
+                                           WidthRequest="160"/>
+
+                    <Switch x:Name="SwitchPatrocinadores"
+                 IsToggled="{Binding PatrocinadoresVisible}"
+                 HorizontalOptions="EndAndExpand"
+                 IsEnabled="False"/>
+                </HorizontalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapPatrocinadores_Tapped"/>
                 </Frame.GestureRecognizers>
             </Frame>
 

@@ -58,16 +58,20 @@
     <FlyoutItem x:Name="MenuCine" Title="Cine">
         <ShellContent ContentTemplate="{DataTemplate local:CinePage}" />
     </FlyoutItem>
-
-    <FlyoutItem Title="Patrocinadores">
-        <ShellContent Title="Listado" ContentTemplate="{DataTemplate local:SponsorsPage}" />
+    
+    <FlyoutItem x:Name="MenuPatrocinadores" Title="Patrocinadores">
+        <ShellContent ContentTemplate="{DataTemplate local:SponsorsPage}" />
     </FlyoutItem>
 
+    
+    <FlyoutItem x:Name="MenuConfiguracion" Title="Configuración">
+        <ShellContent ContentTemplate="{DataTemplate local:Configuracion}" />
+    </FlyoutItem>
 
-    <ShellContent Route="SponsorFormPage"    ContentTemplate="{DataTemplate local:SponsorFormPage}" />
+    <!--<ShellContent Route="SponsorFormPage"    ContentTemplate="{DataTemplate local:SponsorFormPage}" />
     <ShellContent Route="PlansPage"          ContentTemplate="{DataTemplate local:PlansPage}" />
     <ShellContent Route="SponsorsMapPage"    ContentTemplate="{DataTemplate local:SponsorsMapPage}" />
-    <ShellContent Route="SponsorDetailPage"  ContentTemplate="{DataTemplate local:SponsorDetailPage}" />
+    <ShellContent Route="SponsorDetailPage"  ContentTemplate="{DataTemplate local:SponsorDetailPage}" />-->
 
 
 </Shell>

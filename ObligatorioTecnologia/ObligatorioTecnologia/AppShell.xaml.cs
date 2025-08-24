@@ -77,8 +77,8 @@ namespace ObligatorioTecnologia
             MenuClima.IsVisible = Preferences.Get("MenuClimaVisible", true);
             MenuCotizaciones.IsVisible = Preferences.Get("MenuCotizacionesVisible", true);
             MenuCine.IsVisible = Preferences.Get("MenuCineVisible", true);
+            MenuPatrocinadores.IsVisible = Preferences.Get("MenuPatrocinadoresVisible", true);
 
-            //MenuConfiguracion.IsVisible = true;
         }
 
     }
