@@ -9,39 +9,33 @@ namespace ObligatorioTecnologia;
 
 public partial class SponsorsPage : ContentPage
 {
-	private readonly SponsorRepository _repo;
-	public SponsorsPage(SponsorRepository repo)
-	{
+    private readonly SponsorDb _db;
+
+    public SponsorsPage(SponsorDb db)
+    {
         InitializeComponent();
-        _repo = repo;
-    }
-    
-	protected override async void OnAppearing()
-	{
-		base.OnAppearing();
-		SponsorsList.ItemsSource = await _repo.GetAllAsync();
+        _db = db;
     }
 
-    private async void OnNuevo(object sender, EventArgs e)
+    protected override async void OnAppearing()
     {
-        await Shell.Current.GoToAsync(nameof(SponsorFormPage));
+        base.OnAppearing();
+        await _db.InitAsync();
+        SponsorsCollection.ItemsSource = await _db.GetAllAsync();
+        SponsorsCollection.SelectedItem = null;
     }
 
-    private async void OnPlanes(object sender, EventArgs e)
+    private async void OnAddClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(PlansPage));      
+        await Navigation.PushAsync(new SponsorFormPage(_db));
     }
 
-    private async void OnMapa(object sender, EventArgs e)
+    private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(SponsorsMapPage));  
+        if (e.CurrentSelection?.FirstOrDefault() is Sponsor s)
+        {
+            await Navigation.PushAsync(new SponsorFormPage(_db, s.Id));
+            ((CollectionView)sender).SelectedItem = null;
+        }
     }
-    
-    private async void OnSelChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (e.CurrentSelection.FirstOrDefault() is Sponsor s)
-            await Shell.Current.GoToAsync($"{nameof(SponsorDetailPage)}?sid={s.Id}");
-        ((CollectionView)sender).SelectedItem = null;
-    }
-
 }

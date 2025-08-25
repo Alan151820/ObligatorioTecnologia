@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObligatorioTecnologia.SponsorFormPage"
-             Title="Nuevo Patrocinador">
+<ContentPage
+    x:Class="ObligatorioTecnologia.SponsorFormPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Patrocinador">
+
     <ScrollView>
         <VerticalStackLayout Padding="16" Spacing="12">
-            <Entry x:Name="NombreEntry" Placeholder="Nombre"/>
-            <Entry x:Name="DescripcionEntry" Placeholder="Descripción"/>
-            <Entry x:Name="DireccionEntry" Placeholder="Dirección (calle, ciudad)"/>
 
-            <Button Text="Guardar" Clicked="OnGuardar"/>
+            <Image x:Name="Logo" HeightRequest="120" Aspect="AspectFill" BackgroundColor="#EEE"/>
+            <Button Text="Elegir logo" Clicked="OnPickLogo"/>
+
+            <Entry x:Name="NameEntry" Placeholder="Nombre del patrocinador" />
+            <Entry x:Name="AddressEntry" Placeholder="Dirección (calle, ciudad)" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Ver en mapa" Clicked="OnGeocode"/>
+                <Button Text="Guardar" Clicked="OnSave" />
+                <Button x:Name="DeleteButton" Text="Eliminar" Clicked="OnDelete" IsVisible="False" />
+            </HorizontalStackLayout>
+
+            <!-- Contenedor para el mapa nativo (solo Android/iOS).
+                 NO incluimos <maps:Map> en XAML para que en Windows no se cree el handler -->
+            <ContentView x:Name="NativeMapContainer" HeightRequest="240"/>
+
+            <!-- Contenedor del mapa web (solo Windows) -->
+            <ContentView x:Name="WebMapContainer" HeightRequest="240" IsVisible="False">
+                <WebView x:Name="WebMap"/>
+            </ContentView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

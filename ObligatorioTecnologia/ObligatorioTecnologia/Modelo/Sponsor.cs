@@ -9,15 +9,16 @@ namespace ObligatorioTecnologia.Modelo
 {
     public class Sponsor
     {
-        [PrimaryKey, AutoIncrement] public int Id { get; set; }
-        public string Nombre { get; set; } = "";
-        public int PlanID { get; set; }
-        public bool PlanPagado { get; set; }
-        public string Descripcion { get; set; } = "";
-        public string Direccion { get; set; } = "";
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
 
-        // Ubicación (rellenada al geocodificar):
-        public double? Latitud { get; set; }
-        public double? Longitud { get; set; }
+        [MaxLength(100), NotNull]
+        public string Name { get; set; }
+
+        public string LogoPath { get; set; }   // ruta local del logo copiado al AppData
+        public string Address { get; set; }    // dirección escrita por el usuario
+
+        public double? Latitude { get; set; }  // calculada con geocoding
+        public double? Longitude { get; set; }
     }
 }

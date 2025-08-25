@@ -60,7 +60,7 @@
     </FlyoutItem>
     
     <FlyoutItem x:Name="MenuPatrocinadores" Title="Patrocinadores">
-        <ShellContent ContentTemplate="{DataTemplate local:SponsorsPage}" />
+        <ShellContent Title="Patrocinadores" ContentTemplate="{DataTemplate local:SponsorsPage}" />
     </FlyoutItem>
 
     

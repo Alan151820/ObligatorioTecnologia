@@ -12,11 +12,10 @@ namespace ObligatorioTecnologia
             ConfigurarMenu();
 
             Routing.RegisterRoute(nameof(SponsorFormPage), typeof(SponsorFormPage));
-            Routing.RegisterRoute(nameof(PlansPage), typeof(PlansPage));                 // o PlanesPage si tu clase se llama así
-            Routing.RegisterRoute(nameof(SponsorsMapPage), typeof(SponsorsMapPage));     // ojo con la 's'
-            Routing.RegisterRoute(nameof(SponsorDetailPage), typeof(SponsorDetailPage));
+           
 
         }
+        
         public Image UsuarioImagenPublic => UsuarioImagen;
         private void btnLogin_Clicked(object sender, EventArgs e)
         {
